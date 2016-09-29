@@ -1,5 +1,7 @@
 body {
+  font-family: sans-serif;
   text-align: center;
+  font-weight: bold;
 }
 
 ul {
@@ -16,4 +18,10 @@ li {
   outline: 2px solid black;
   background: #b3b3b3;
   cursor: pointer;
+  font-size: 60px;
+  line-height: 90px;
+}
+
+li:hover {
+  background: #747474;
 }

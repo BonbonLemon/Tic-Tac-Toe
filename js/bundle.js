@@ -63,6 +63,27 @@
 	  this.$el = $el;
 	
 	  this.setupBoard();
+	  this.bindEvents();
+	};
+	
+	View.prototype.bindEvents = function () {
+	  this.$el.on('click', 'li', function (e) {
+	    var $square = $(e.currentTarget);
+	    this.makeMove($square);
+	  }.bind(this));
+	};
+	
+	View.prototype.makeMove = function ($square) {
+	  var pos = $square.data("pos");
+	  var currentPlayer = this.game.currentPlayer;
+	
+	  try {
+	    this.game.playMove(pos);
+	  } catch (e) {
+	    return;
+	  }
+	
+	  $square.text(currentPlayer);
 	};
 	
 	View.prototype.setupBoard = function () {
