@@ -24,6 +24,18 @@ View.prototype.makeMove = function ($square) {
   }
 
   $square.text(currentPlayer);
+
+  if (this.game.isOver()) {
+    this.$el.off("click");
+
+    var winner = this.game.winner();
+
+    if (winner) {
+      alert("You win, " + winner + "!");
+    } else {
+      alert("It's a draw!");
+    }
+  }
 };
 
 View.prototype.setupBoard = function () {
